@@ -3,26 +3,49 @@ def placeQueens(board_size, placements=[]):
     A function to define the placement of queens on an NxN
     chessboard such that no queen threatens another.
     """
-    if board_size <=0 or board_size==2 or board_size==3:
-        raise Exception("Invalid argument: no solution for negative values or for boards where N=2 or N=3.")
+
+    # Somehow handle invalid arguments
+    # board_size <= 0, board_size = 2, board_size = 3
+
+    board_size = 4  # work with this particular example
 
     rows = [x + 1 for x in list(range(board_size))]
     cols = [y + 1 for y in list(range(board_size))]
 
-    for row in board_size:
-        for col in board_size:
-            if len(placements) < board_size:
-                # placement in an NxN matrix
-                # individually place values using tuple (1...N, 1...N)
-                
-                placement = (rows[row], cols[col])
+    # [(1,1),(1,2),(1,3),(1,4)]
+    # [(2,1),(2,2),(2,3),(2,4)]
+    # [(3,1),(3,2),(3,3),(3,4)]        
+    # [(4,1),(4,2),(4,3),(4,4)]
+    
+    if len(placements) < board_size:
+        for each_row in rows:
+            for each_col in cols:
+                placement = (each_row, each_col)
+                # check to see if placement valid
 
-                if placement is valid:  # TODO: figure out comparison logic here
+                # match_prev
+                if placement[1] == previous_placement[0][1]:  # for any previous placement
+                    match_col = True
+                else:
+                    match_col = False
+
+                # match_row = 
+                if placement[0] == previous_placement[0][0]:  # for any previous placement
+                    match_row = True
+                else:
+                    match_row = False
+
+                # match_diagonal =   # figure out a way to define this
+
+                if match_row or match_col or 
+
+                if is_valid is True:
                     placements += [placement]
                     placeQueens(board_size, placements)
 
-            else:
-                print(placements)
+    else:
+        print(placements)
+
 
 if __name__=="__main__":
     placeQueens(4)
