@@ -22,11 +22,6 @@ If given a string `example_string = '%%whatsupdoc%'` you would print
 1. '01whatsupdoc1'
 1. '11whatsupdoc1'
 
-### Hint
-
-Recursion is a good option to use here.
-
-
 ## Example 2: The N Queens Problem
 
 #TODO: Fill out documentation here
